@@ -13,4 +13,18 @@
 - 그룹 내에서 일정이나 진행 방향에 대해 의견을 결정하기 위한 투표 기능
 - 그룹 내에서 행사와 같은 전파 사항을 모두에게 전달할 수 있는 공지 기능 
 - 그룹 내에서 불순한 의도를 가지거나 이용하려는 회원을 신고할 수 있는 기능 
-- 
+
+> 추후 더 작성... 
+
+
+## 기술 
+- Spring, Spring boot, Java 
+- html, jsp 
+- SMTP 
+
+# 목업
+<img width="552" alt="image" src="https://github.com/Mingi990408/StudyGroupWeb/assets/94788636/bc732110-3a17-4dd7-b9d5-7e094cc44fbf">
+
+
+## 참고 
+https://alsrl990408.atlassian.net/jira/software/projects/SGW/boards/2
