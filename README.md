@@ -28,6 +28,7 @@
 <img width="552" alt="image" src="https://github.com/Mingi990408/StudyGroupWeb/assets/94788636/dc7eea00-1009-42ca-b7d1-cc29187b4a16">
 <img width="704" alt="image" src="https://github.com/Mingi990408/StudyGroupWeb/assets/94788636/9580f928-8944-4a3a-a099-f993e380b23f">
 <img width="552" alt="image" src="https://github.com/Mingi990408/StudyGroupWeb/assets/94788636/e4118726-5e43-4b6f-bf36-01e4fe4e2354">
+
 > 디자인이랑 필요 요소는 더욱 생각해보고 결정 
 
 ## 참고 
