@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToGetHer</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            background-color: black;
+            margin-top: 100px;
+        }
+        .signup-body{
+            background-color: gray;
+            width: 900px;
+            height: 600px;
+        }
+        .signup-div{
+            margin-top: 50px;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 10px;
+            place-items: center;
+        }
+        form{
+
+        }
+        input{
+            margin: 10px;
+            width: 200px;
+            height: 30px;
+        }
+        th{
+            position: relative;
+            padding: 0;
+        }
+        .submit-button{
+            background-color: black;
+            height: 160px;
+            padding: 10px;
+            box-sizing: border-box;
+            color: white;
+        }
+        .email-button{
+            background-color: black;
+            padding: 10px;
+            box-sizing: border-box;
+            color: white;
+        }
+        .nickname-button{
+            background-color: black;
+            padding: 10px;
+            box-sizing: border-box;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="signup-body">
+    <div class="signup-div">
+    <h1>Sign Up</h1>
+    <form action="/signup-callback" method="post">
+        <table>
+            <tr>
+                <th><input placeholder="Email" name="Email"></th>
+                <th><button class="email-button" type="submit">Duplicate Check</button></th>
+                <th rowspan="3"><button class="submit-button" type="submit">SignUp</button></th>
+            </tr>
+            <tr>
+                <th><input placeholder="Password" name="Password"></th>
+
+            </tr>
+            <tr>
+                <th><input placeholder="NickName" name="Nickname"></th>
+                <th><button class="nickname-button" type="submit">Duplicate Check</button></th>
+            </tr>
+        </table>
+    </form>
+    </div>
+</div>
+</body>
+</html>
