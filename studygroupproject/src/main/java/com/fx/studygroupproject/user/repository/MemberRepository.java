@@ -6,5 +6,9 @@ import java.util.Optional;
 
 public interface MemberRepository {
     Optional<Member> addMember(Member member);
-    boolean findMember(Member member);
+    Optional<Member> findMember(Member member);
+
+    Optional<Member>  findByEmail(String email);
+
+    Optional<Member>  findByNickname(String nickname);
 }
