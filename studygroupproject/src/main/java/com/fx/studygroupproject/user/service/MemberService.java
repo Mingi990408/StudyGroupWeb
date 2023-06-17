@@ -6,6 +6,6 @@ public interface MemberService {
     void signup(Member member);
     boolean login(String Email, String Password);
 
-    boolean emailDuplicateCheck(Member member);
-    boolean nicknameDuplicateCheck(Member member);
+    boolean emailDuplicateCheck(String email);
+    boolean nicknameDuplicateCheck(String nickname);
 }

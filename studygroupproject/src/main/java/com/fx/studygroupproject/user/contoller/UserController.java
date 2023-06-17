@@ -7,8 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -25,27 +27,27 @@ public class UserController {
     }
 
     @PostMapping("signup-callback")
-    public String signupCallback(@ModelAttribute("member") @Valid Member member, BindingResult bindingResult, Model model) {
+    public String signupCallback(@ModelAttribute("member") @Valid Member member, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "signup";
-        }
-        if(memberService.emailDuplicateCheck(member)){
-            bindingResult.rejectValue("email", "error.user", "중복된 이메일입니다.");
-            return "signup";
-        }
-        if(memberService.nicknameDuplicateCheck(member)){
-            bindingResult.rejectValue("nickname", "error.user", "중복된 닉네임입니다.");
             return "signup";
         }
         memberService.signup(member);
         return "homepage";
     }
-    @PostMapping("/email/duplicate-check")
-    public void  emailDuplicateCheck(HttpServletResponse response){
-        response.setStatus(400);
+    @GetMapping("/email/duplicate-check")
+    public void  emailDuplicateCheck(@RequestParam String email, HttpServletResponse response){
+        if (memberService.emailDuplicateCheck(email)) {
+            response.setStatus(HttpServletResponse.SC_OK);
+        }
+        else
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
     }
-    @PostMapping("/nickname/duplicate-check")
-    public void  nicknameDuplicateCheck(HttpServletResponse response){
-        response.setStatus(400);
+    @GetMapping("/nickname/duplicate-check")
+    public void  nicknameDuplicateCheck(@RequestParam String nickname, HttpServletResponse response){
+        if (memberService.nicknameDuplicateCheck(nickname)) {
+            response.setStatus(HttpServletResponse.SC_OK);
+        }
+        else
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
     }
 }

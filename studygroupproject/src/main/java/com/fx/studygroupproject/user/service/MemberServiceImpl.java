@@ -23,12 +23,12 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public boolean emailDuplicateCheck(Member member) {
-        return memberRepository.findByEmail(member.getEmail()).isEmpty();
+    public boolean emailDuplicateCheck(String email) {
+        return memberRepository.findByEmail(email).isEmpty();
     }
 
     @Override
-    public boolean nicknameDuplicateCheck(Member member) {
-        return memberRepository.findByNickname(member.getNickname()).isEmpty();
+    public boolean nicknameDuplicateCheck(String nickname) {
+        return memberRepository.findByNickname(nickname).isEmpty();
     }
 }

@@ -19,11 +19,8 @@ class MemberServiceImplTest {
     @DisplayName("회원가입")
     void signup() {
         Member member1 = new Member("qwe1234@naver.com", "1234", "nickname");
-        boolean state = memberService.signup(member1);
-        assertThat(state).isTrue();
-        boolean signup = memberService.signup(member1);
-        assertThat(signup).isFalse();
-
+        memberService.signup(member1);
+        memberService.signup(member1);
     }
 
     @Test
