@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -21,14 +20,10 @@ import javax.validation.Valid;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-public class UserController {
+public class SignupController {
     private final MemberService memberService;
     private final EmailService emailService;
 
-    @PostMapping("/login-callback")
-    public boolean loginCallback(String Email, String Password) {
-        return memberService.login(Email, Password);
-    }
 
     @PostMapping("signup-callback")
     public String signupCallback(@ModelAttribute("member") @Valid Member member, HttpSession session, BindingResult bindingResult, Model model) throws Exception {

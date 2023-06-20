@@ -21,10 +21,11 @@ public class EmailService {
 
     /**
      * 이메일 보내는 함수
+     *
      * @param member
      * @throws Exception
      */
-    public String sendAuthMessage(Member member) throws Exception {
+    public void sendAuthMessage(Member member) throws Exception {
         authCode = generateAuthCode();
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -37,7 +38,6 @@ public class EmailService {
             e.printStackTrace();
         }
         System.out.println("authCode = " + authCode);
-        return authCode;
     }
 
     /**

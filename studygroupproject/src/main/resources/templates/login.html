@@ -47,22 +47,28 @@
             padding: 10px;
             margin: 20px;
         }
+        .error-div {
+            margin-left: 50px;
+        }
     </style>
 </head>
 <body>
 <div class="login-body">
     <div class="login-div">
     <h1>Login</h1>
-    <form action="/login-callback" method="post">
+    <form id="loginForm" action="/login-callback" method="post" onsubmit="return validateForm(event)">
         <table>
             <tr>
-                <th><input placeholder="Email" name="Email"></th>
+                <th><input id="Email" placeholder="Email" name="Email" required></th>
                 <th rowspan="2"><button class="submit-button" type="submit">Login</button></th>
             </tr>
             <tr>
-                <th><input placeholder="Password" name="Password"></th>
+                <th><input id="Password" placeholder="Password" name="Password" type="password" required></th>
             </tr>
         </table>
+        <div th:if="${param.error}" class="error-div" >
+            <b style="color: red;">유저 정보가 일치하지 않습니다</b>
+        </div>
     </form>
         <div>
             <button>Kakao Login</button>
@@ -70,7 +76,21 @@
             <button>Nave Login</button>
         </div>
     </div>
-
 </div>
+<script>
+    function validateForm(event) {
+        const username = document.getElementById("Email").value;
+        const password = document.getElementById("Password").value;
+
+
+        if (username === "" || password === "") {
+            event.preventDefault(); // Prevent form submission
+            alert("이메일과 비밀번호를 입력해주세요");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 </body>
 </html>

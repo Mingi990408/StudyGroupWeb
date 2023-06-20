@@ -16,7 +16,7 @@ public class InitData {
 
     @PostConstruct
     void setMemberTestData() {
-        Member member = new Member("asd@naver.com", "asd1234!", "TestData");
+        Member member = new Member("asd@naver.com", "Asd1234!", "TestData");
         memberRepository.addMember(member);
         log.info("save Member : " + member.toString() );
     }

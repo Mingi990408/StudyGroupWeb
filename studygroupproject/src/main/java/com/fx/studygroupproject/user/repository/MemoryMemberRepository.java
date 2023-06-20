@@ -25,6 +25,7 @@ public class MemoryMemberRepository implements MemberRepository {
     public Optional<Member> findMember(Member member) {
         for (Member out:store.values()){
             if (out.getEmail().equals(member.getEmail()) && out.getPassword().equals(member.getPassword())){
+                System.out.println("out = " + out);
                 return Optional.of(out);
             }
         }
