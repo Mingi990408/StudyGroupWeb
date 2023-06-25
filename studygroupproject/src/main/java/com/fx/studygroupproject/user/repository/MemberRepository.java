@@ -11,4 +11,6 @@ public interface MemberRepository {
     Optional<Member>  findByEmail(String email);
 
     Optional<Member>  findByNickname(String nickname);
+
+    Optional<Member> changePassword(Member member, String newPassword);
 }

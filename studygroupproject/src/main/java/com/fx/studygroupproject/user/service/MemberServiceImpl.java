@@ -31,4 +31,9 @@ public class MemberServiceImpl implements MemberService{
     public boolean nicknameDuplicateCheck(String nickname) {
         return memberRepository.findByNickname(nickname).isEmpty();
     }
+
+    @Override
+    public boolean change(Member member, String newPassword) {
+        return memberRepository.changePassword(member, newPassword).isPresent();
+    }
 }

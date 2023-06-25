@@ -8,4 +8,6 @@ public interface MemberService {
 
     boolean emailDuplicateCheck(String email);
     boolean nicknameDuplicateCheck(String nickname);
+
+    boolean change(Member member, String newPassword);
 }

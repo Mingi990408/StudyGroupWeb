@@ -51,4 +51,16 @@ public class MemoryMemberRepository implements MemberRepository {
         }
         return Optional.empty();
     }
+
+    @Override
+    public Optional<Member> changePassword(Member member, String newPassword) {
+        for(Member m :store.values()){
+            if(member.getEmail().equals(m.getEmail())){
+                m.setPassword(newPassword);
+                return Optional.of(m);
+            }
+        }
+        return Optional.empty();
+
+    }
 }
