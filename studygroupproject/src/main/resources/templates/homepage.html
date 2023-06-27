@@ -8,10 +8,11 @@
             margin-top: 25px;
             background-color: black;
             display: grid;
-
         }
         .header{
             display: flex;
+
+            border-bottom: 2px solid white;
             justify-content: space-between;
         }
         .large {
@@ -23,7 +24,7 @@
             color: white;
         }
         .subtitle{
-            margin-left: 25px;
+            margin-left: 10px;
             color: white;
         }
         .menu{
@@ -40,6 +41,9 @@
         b{
          margin-left: 25px;
         }
+        .body_div{
+
+        }
     </style>
 </head>
 <body>
@@ -54,11 +58,21 @@
         <span class="small">er</span>
     </div>
     <div class="menu">
-        <b>Notice</b> <b>Study Group</b>
+        <b id="notice" onclick="redirectToUrl('/notice')">Notice</b>
+        <b id="study" onclick="redirectToUrl('/study')">Study Group</b>
     </div>
     <div class="profile">
-        <b>Profile</b><b>Logout</b>
+        <b id="profile" onclick="redirectToUrl('/profile')">Profile</b>
+        <b id="logout" onclick="redirectToUrl('/logout')">Logout</b>
     </div>
 </div>
+<div class="body_div">
+
+</div>
+<script>
+    function redirectToUrl(url) {
+        window.location.href = url;
+    }
+</script>
 </body>
 </html>
