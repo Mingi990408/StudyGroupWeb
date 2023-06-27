@@ -17,7 +17,6 @@ public class MemoryMemberRepository implements MemberRepository {
     public Optional<Member> addMember(Member member) {
         member.setId(++sequence);
         store.put(member.getId(), member);
-        System.out.println("member.toString() = " + member.toString());
         return Optional.of(member);
     }
 
@@ -25,7 +24,6 @@ public class MemoryMemberRepository implements MemberRepository {
     public Optional<Member> findMember(Member member) {
         for (Member out:store.values()){
             if (out.getEmail().equals(member.getEmail()) && out.getPassword().equals(member.getPassword())){
-                System.out.println("out = " + out);
                 return Optional.of(out);
             }
         }

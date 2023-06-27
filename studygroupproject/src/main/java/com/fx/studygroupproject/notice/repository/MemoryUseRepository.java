@@ -1,25 +1,33 @@
 package com.fx.studygroupproject.notice.repository;
 
+import com.fx.studygroupproject.notice.Notice;
 import com.fx.studygroupproject.user.Member;
+import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
+@Repository
 public class MemoryUseRepository implements UseRepository{
-    private static final Map<Long, Member> store = new HashMap<>();
+    private static final Map<Member, List<Notice>> store = new HashMap<>();
+
     @Override
-    public Optional<Member> addGroup(Member member) {
-        return Optional.empty();
+    public Optional<Notice> addNotice(Member member, Notice notice) {
+        List<Notice> notices = store.get(member);
+        if (notices == null) {
+            notices = new ArrayList<>();
+        }
+        notices.add(notice);
+        store.put(member, notices);
+        return Optional.of(notice);
     }
 
     @Override
-    public Optional<Member> addNotice(Member member) {
-        return Optional.empty();
+    public Optional<List<Notice>> findByMember(Member member) {
+        List<Notice> notices = store.get(member);
+        return Optional.ofNullable(notices);
     }
 
-    @Override
-    public Optional<Member> findById(Member member) {
-        return Optional.empty();
+    public Collection<List<Notice>> All() {
+        return store.values();
     }
 }
