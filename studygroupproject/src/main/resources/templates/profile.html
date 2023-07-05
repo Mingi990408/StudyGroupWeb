@@ -11,11 +11,6 @@
             background-color: black;
             margin-top: 100px;
         }
-        .profile-body{
-            background-color: gray;
-            width: 900px;
-            height: 600px;
-        }
         .login-div{
             margin-top: 80px;
             display: grid;
@@ -49,12 +44,16 @@
             padding: 10px;
             margin: 20px;
         }
+        .btn-secondary{
+            background-color: black;
+        }
+
     </style>
 </head>
 <body>
 <div class="profile-body">
     <div class="login-div">
-        <h1>Profile</h1>
+        <h1 style="color: white">Profile</h1>
         <div class="main_div">
             <div class="profile_div">
                 <b>Nickname : </b><span th:text="${member.nickname}"></span>
@@ -62,7 +61,7 @@
                 <b>Email : </b><span th:text="${member.email}"></span>
                 <br>
                 <b>Password : </b><span id="pw" th:text="${member.password}" style="display: none"></span>*********&nbsp;
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Change
                 </button>
                 <br>
@@ -74,7 +73,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">password change</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Password change</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="post" action="/change/pw">
