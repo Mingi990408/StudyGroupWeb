@@ -26,14 +26,17 @@ public class SignupController {
 
 
     @PostMapping("signup-callback")
-    public String signupCallback(@ModelAttribute("member") @Valid Member member, HttpSession session, BindingResult bindingResult, Model model) throws Exception {
+    public void signupCallback(@ModelAttribute("member") @Valid Member member, HttpServletResponse response, HttpSession session, BindingResult bindingResult, Model model) throws Exception {
         if (bindingResult.hasErrors()) {
-            return "signup";
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
-        session.setAttribute("member", member);
-        model.addAttribute("member", member);
-        emailService.sendAuthMessage(member);
-        return "checkEmail";
+        else {
+            session.setAttribute("member", member);
+            model.addAttribute("member", member);
+            emailService.sendAuthMessage(member);
+            response.setStatus(HttpServletResponse.SC_OK);
+            System.out.println("member.toString() = " + member.toString());
+        }
     }
 
     @GetMapping("auth-check")
