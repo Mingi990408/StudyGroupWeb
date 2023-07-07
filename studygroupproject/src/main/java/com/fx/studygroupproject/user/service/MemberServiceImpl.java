@@ -17,9 +17,9 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public boolean login(String Email, String Password) {
+    public Member login(String Email, String Password) {
         Member member = new Member(Email, Password);
-        return memberRepository.findMember(member).isPresent();
+        return memberRepository.findMember(member).get();
     }
 
     @Override

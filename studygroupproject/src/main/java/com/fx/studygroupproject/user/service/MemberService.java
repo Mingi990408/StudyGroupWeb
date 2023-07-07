@@ -4,7 +4,7 @@ import com.fx.studygroupproject.user.Member;
 
 public interface MemberService {
     void signup(Member member);
-    boolean login(String Email, String Password);
+    Member login(String Email, String Password);
 
     boolean emailDuplicateCheck(String email);
     boolean nicknameDuplicateCheck(String nickname);
