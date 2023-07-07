@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -23,10 +25,12 @@ public class ProfileController {
         return "profile";
     }
 
-    @PostMapping("/change/pw")
-    public String passwordChange(HttpSession session, String newPassword) {
+    @GetMapping("/change/pw")
+    public void passwordChange(String newPassword, HttpServletResponse response, HttpSession session) {
         Member member = (Member) session.getAttribute("member");
-        memberService.change(member, newPassword);
-        return "redirect:/";
+        if(memberService.change(member, newPassword))
+            response.setStatus(HttpServletResponse.SC_OK);
+        else
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
     }
 }
