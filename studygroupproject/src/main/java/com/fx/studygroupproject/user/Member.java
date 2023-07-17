@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -28,6 +29,7 @@ public class Member {
             message = "닉네임은 특수문자를 포함하지 않은 2~10자리여야 합니다.")
     private String Nickname;
 
+    private List<Long> NoticeList = new ArrayList<>();
     public Member(String email, String password) {
         Email = email;
         Password = password;
@@ -37,5 +39,8 @@ public class Member {
         Email = email;
         Password = password;
         Nickname = nickname;
+    }
+    public void addNoticeId(Long noticeId){
+        this.NoticeList.add(noticeId);
     }
 }

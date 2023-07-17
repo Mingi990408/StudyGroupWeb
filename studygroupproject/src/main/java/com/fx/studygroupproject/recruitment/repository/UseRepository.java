@@ -1,6 +1,6 @@
-package com.fx.studygroupproject.notice.repository;
+package com.fx.studygroupproject.recruitment.repository;
 
-import com.fx.studygroupproject.notice.Recruitment;
+import com.fx.studygroupproject.recruitment.Recruitment;
 import com.fx.studygroupproject.user.Member;
 
 import java.util.Collection;

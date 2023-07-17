@@ -91,7 +91,7 @@ function checkPasswordMatch(){
 }
 function CreateModalBodyChange(){
     let ModalSelect = document.getElementById("modal-select").value;
-    let ModalNoticeBody = document.getElementById("modal-notice-body");
+    let ModalNoticeBody = document.getElementById("modal-recruitment-body");
     let ModalGroupBody = document.getElementById("modal-group-body");
     const ModalTitle = document.getElementById("NewNoticeTitle");
     if(ModalSelect === "1"){

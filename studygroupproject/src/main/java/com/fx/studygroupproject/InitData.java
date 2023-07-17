@@ -1,8 +1,8 @@
 package com.fx.studygroupproject;
 
-import com.fx.studygroupproject.notice.ContactType;
-import com.fx.studygroupproject.notice.Notice;
-import com.fx.studygroupproject.notice.repository.UseRepository;
+import com.fx.studygroupproject.recruitment.ContactType;
+import com.fx.studygroupproject.recruitment.Recruitment;
+import com.fx.studygroupproject.recruitment.repository.UseRepository;
 import com.fx.studygroupproject.user.Member;
 import com.fx.studygroupproject.user.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,9 +28,9 @@ public class InitData {
         List<String> Tag = new ArrayList<>();
         Tag.add("test");
         Tag.add("test");
-        Notice notice1 = new Notice("테스트", "내용", Tag, ContactType.Offline);
-        Notice notice2 = new Notice("테스트", "내용", Tag, ContactType.Offline);
-        useRepository.addNotice(member, notice1);
-        useRepository.addNotice(member, notice2);
+        Recruitment recruitment1 = new Recruitment("테스트", "내용", member.getNickname(), Tag, ContactType.Offline);
+        Recruitment recruitment2 = new Recruitment("테스트", "내용",member.getNickname(), Tag, ContactType.Offline);
+        useRepository.addNotice(member, recruitment1);
+        useRepository.addNotice(member, recruitment2);
     }
 }

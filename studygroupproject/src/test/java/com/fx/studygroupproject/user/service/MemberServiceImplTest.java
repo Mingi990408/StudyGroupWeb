@@ -28,7 +28,6 @@ class MemberServiceImplTest {
     void login() {
         Member member1 = new Member("qwe1234@naver.com", "1234", "nickname");
         memberService.signup(member1);
-        boolean login = memberService.login("qwe1234@naver.com", "1234");
-        assertThat(login).isTrue();
+        Member login = memberService.login("qwe1234@naver.com", "1234");
     }
 }

@@ -1,7 +1,7 @@
-package com.fx.studygroupproject.notice.service;
+package com.fx.studygroupproject.recruitment.service;
 
-import com.fx.studygroupproject.notice.Recruitment;
-import com.fx.studygroupproject.notice.repository.UseRepository;
+import com.fx.studygroupproject.recruitment.Recruitment;
+import com.fx.studygroupproject.recruitment.repository.UseRepository;
 import com.fx.studygroupproject.user.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

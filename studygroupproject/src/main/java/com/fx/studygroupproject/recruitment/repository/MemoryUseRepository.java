@@ -1,13 +1,13 @@
-package com.fx.studygroupproject.notice.repository;
+package com.fx.studygroupproject.recruitment.repository;
 
-import com.fx.studygroupproject.notice.Recruitment;
+import com.fx.studygroupproject.recruitment.Recruitment;
 import com.fx.studygroupproject.user.Member;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 @Repository
-public class MemoryUseRepository implements UseRepository {
+public class MemoryUseRepository implements UseRepository{
     private static final Map<Long, Recruitment> store = new HashMap<>();
     private static long sequence = 0L;
 

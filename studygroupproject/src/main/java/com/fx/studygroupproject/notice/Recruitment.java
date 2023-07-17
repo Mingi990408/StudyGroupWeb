@@ -1,6 +1,9 @@
 package com.fx.studygroupproject.notice;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -8,15 +11,19 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-public class Notice {
+public class Recruitment {
+    private Long Id;
     private String Title;
     private String Contents;
+
+    private String Writer;
     private List<String> Tag;
     private ContactType Type;
 
-    public Notice(String title, String contents, List<String> tag, ContactType type) {
+    public Recruitment(String title, String contents, String writer, List<String> tag, ContactType type) {
         Title = title;
         Contents = contents;
+        Writer = writer;
         Tag = tag;
         Type = type;
     }
