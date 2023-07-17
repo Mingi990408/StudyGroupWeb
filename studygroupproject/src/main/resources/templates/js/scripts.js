@@ -95,11 +95,11 @@ function CreateModalBodyChange(){
     let ModalGroupBody = document.getElementById("modal-group-body");
     const ModalTitle = document.getElementById("NewNoticeTitle");
     if(ModalSelect === "1"){
-        ModalTitle.textContent = "Create Notice";
+        ModalTitle.textContent = "Create Recruitment";
         ModalNoticeBody.style.display = "block";
         ModalGroupBody.style.display = "none";
     }else if(ModalSelect === "2"){
-        ModalTitle.textContent = "Create Group";
+        ModalTitle.textContent = "Create Study Group";
         ModalNoticeBody.style.display = "none";
         ModalGroupBody.style.display = "block";
     }

@@ -88,7 +88,7 @@
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">ToGetHer</h1>
                     <p class="lead fw-normal text-white-50 mb-0">환영합니다! '다같이'는 자유로운 스터디 모임 사이트입니다!</p>
-                    <button style="margin: 10px" class="btn btn-primary" data-bs-target="#NewNoticeModal" data-bs-toggle="modal">New Notice / Study Group</button>
+                    <button style="margin: 10px" class="btn btn-primary" data-bs-target="#NewNoticeModal" data-bs-toggle="modal">New Recruitment / Study Group</button>
                 </div>
             </div>
         </header>
@@ -99,11 +99,11 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="NewNoticeTitle">Create Notice</h1>
+                            <h1 class="modal-title fs-5" id="NewNoticeTitle">Create Recruitment</h1>
                         </div>
                         <form method="get" action="/new" onsubmit="">
                             <select id="modal-select" class="form-select" aria-label="MenuList" style="width: 200px; margin: 16px" onchange="CreateModalBodyChange()">
-                                <option selected value="1">Notice</option>
+                                <option selected value="1">Recruitment</option>
                                 <option value="2" >Study Group</option>
                             </select>
                             <div id="modal-recruitment-body" class="modal-body">
@@ -147,7 +147,7 @@
                 <form class="d-flex" role="search">
                     <select class="form-select" aria-label="MenuList" style="margin-right: 10px">
                         <option selected>Total</option>
-                        <option value="1">Notice</option>
+                        <option value="1">Recruitment</option>
                         <option value="2">Study Group</option>
                     </select>
 
@@ -156,53 +156,63 @@
                 </form>
             </div>
             <div class="container px-4 px-lg-5 mt-5">
-                <ul class="nav nav-tabs" style="margin-bottom: 20px">
-                    <li class="nav-item">
-                        <a class="nav-link nav-select" aria-current="page" href="#">Notice</a>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="recruitment-tab" data-bs-toggle="tab" data-bs-target="#recruitment" type="button" role="tab" aria-controls="recruitment" aria-selected="true">Recruitment</button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-select" aria-current="page" href="#">Study Group</a>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="studyGroup-tab" data-bs-toggle="tab" data-bs-target="#studyGroup" type="button" role="tab" aria-controls="study" aria-selected="false">Study Group</button>
                     </li>
                 </ul>
-                <th:block th:each="recruitment : ${recruitments}">
-
-                </th:block>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder" th:text="${recruitment.title}" > recruitment title</h5>
-                                    <!-- Product price-->
-                                    <b th:text="${recruitment.context}"></b>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="recruitment" role="tabpanel" aria-labelledby="recruitment-tab">
+                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                            <th:block th:each="recruitment : ${recruitments}">
+                                <div class="col mb-5">
+                                    <div class="card h-100">
+                                        <!-- Product image-->
+                                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                        <!-- Product details-->
+                                        <div class="card-body p-4">
+                                            <div class="text-center">
+                                                <!-- Product name-->
+                                                <h5 class="fw-bolder" th:text="${recruitment.title}" > recruitment title</h5>
+                                                <!-- Product price-->
+                                                <div style="font-size: 15px" th:text="${recruitment.context}">recruitment.context</div>
+                                            </div>
+                                        </div>
+                                        <!-- Product actions-->
+                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                            <div class="text-center"><button class="btn btn-outline-dark mt-auto" href="#">More View</button></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
+                            </th:block>
                         </div>
                     </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Special Item</h5>
-                                    $18.00
+                    <div class="tab-pane fade" id="studyGroup" role="tabpanel" aria-labelledby="studyGroup-tab">
+                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                            <th:block th:each="studyGroup : ${studyGroups}">
+                                <div class="col mb-5">
+                                    <div class="card h-100">
+                                        <!-- Product image-->
+                                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                        <!-- Product details-->
+                                        <div class="card-body p-4">
+                                            <div class="text-center">
+                                                <!-- Product name-->
+                                                <h5 class="fw-bolder" th:text="${studyGroup.title}" > Study Group title</h5>
+                                                <!-- Product price-->
+                                                <div style="font-size: 15px" th:text="${studyGroup.context}">Study Group.context</div>
+                                            </div>
+                                        </div>
+                                        <!-- Product actions-->
+                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                            <div class="text-center"><button class="btn btn-outline-dark mt-auto" href="#">More View</button></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
+                            </th:block>
                         </div>
                     </div>
                 </div>

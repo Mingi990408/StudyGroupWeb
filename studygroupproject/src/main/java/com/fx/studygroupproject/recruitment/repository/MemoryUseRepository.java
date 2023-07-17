@@ -12,7 +12,7 @@ public class MemoryUseRepository implements UseRepository{
     private static long sequence = 0L;
 
     @Override
-    public Optional<Recruitment> addNotice(Member member, Recruitment recruitment) {
+    public Optional<Recruitment> addRecruitment(Member member, Recruitment recruitment) {
         recruitment.setId(++sequence);
         member.addNoticeId(recruitment.getId());
         store.put(recruitment.getId(), recruitment);

@@ -1,4 +1,4 @@
-package com.fx.studygroupproject.notice;
+package com.fx.studygroupproject.studygroup;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-public class Recruitment {
+public class StudyGroup {
     private Long Id;
     private String Title;
     private String Contents;
@@ -20,7 +20,7 @@ public class Recruitment {
     private List<String> Tag;
     private ContactType Type;
 
-    public Recruitment(String title, String contents, String writer, List<String> tag, ContactType type) {
+    public StudyGroup(String title, String contents, String writer, List<String> tag, ContactType type) {
         Title = title;
         Contents = contents;
         Writer = writer;

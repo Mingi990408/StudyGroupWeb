@@ -6,8 +6,8 @@ import com.fx.studygroupproject.user.Member;
 import java.util.List;
 
 public interface UseService {
-    void CreateNotice(Member member, Recruitment recruitment);
-    List<Recruitment> findMyNotice(Member member);
+    void CreateRecruitment(Member member, Recruitment recruitment);
+    List<Recruitment> findMyRecruitment(Member member);
 
     List<Recruitment> findAll();
 

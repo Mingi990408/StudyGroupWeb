@@ -25,8 +25,8 @@ class UserServiceImplTest {
         Member member = new Member("asd@naver.com", "Asd1234!", "TestData");
         Recruitment recruitment1 = new Recruitment("테스트", "내용",member.getNickname(), Tag, ContactType.Offline);
         Recruitment recruitment2 = new Recruitment("테스트", "내용",member.getNickname(), Tag, ContactType.Offline);
-        useRepository.addNotice(member, recruitment1);
-        useRepository.addNotice(member, recruitment2);
+        useRepository.addRecruitment(member, recruitment1);
+        useRepository.addRecruitment(member, recruitment2);
     }
 
     @Test
@@ -39,8 +39,8 @@ class UserServiceImplTest {
 
         Recruitment recruitment1 = new Recruitment("테스트1", "내용",member.getNickname(), Tag, ContactType.Offline);
         Recruitment recruitment2 = new Recruitment("테스트2", "내용",member.getNickname(), Tag, ContactType.Offline);
-        useRepository.addNotice(member, recruitment1);
-        useRepository.addNotice(member, recruitment2);
+        useRepository.addRecruitment(member, recruitment1);
+        useRepository.addRecruitment(member, recruitment2);
         Optional<List<Recruitment>> byMember = useRepository.findByMember(member);
         System.out.println("byMember = " + byMember);
 
@@ -51,8 +51,8 @@ class UserServiceImplTest {
         System.out.println("member2 = " + member2);
         Recruitment recruitment1_1 = new Recruitment("테스트1_1", "내용",member2.getNickname(), Tag2, ContactType.All);
         Recruitment recruitment1_2 = new Recruitment("테스트2_2", "내용",member2.getNickname(), Tag2, ContactType.Online);
-        useRepository.addNotice(member2, recruitment1_1);
-        useRepository.addNotice(member2, recruitment1_2);
+        useRepository.addRecruitment(member2, recruitment1_1);
+        useRepository.addRecruitment(member2, recruitment1_2);
         Optional<List<Recruitment>> notices = useRepository.findByMember(member2);
         System.out.println("notices = " + notices);
         List<Recruitment> all = (List<Recruitment>) useRepository.All();

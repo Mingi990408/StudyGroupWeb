@@ -30,7 +30,7 @@ public class InitData {
         Tag.add("test");
         Recruitment recruitment1 = new Recruitment("테스트", "내용", member.getNickname(), Tag, ContactType.Offline);
         Recruitment recruitment2 = new Recruitment("테스트", "내용",member.getNickname(), Tag, ContactType.Offline);
-        useRepository.addNotice(member, recruitment1);
-        useRepository.addNotice(member, recruitment2);
+        useRepository.addRecruitment(member, recruitment1);
+        useRepository.addRecruitment(member, recruitment2);
     }
 }

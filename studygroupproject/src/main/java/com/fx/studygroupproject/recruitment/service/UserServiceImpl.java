@@ -14,12 +14,12 @@ public class UserServiceImpl implements UseService {
     private final UseRepository useRepository;
 
     @Override
-    public void CreateNotice(Member member, Recruitment recruitment) {
-        useRepository.addNotice(member, recruitment);
+    public void CreateRecruitment(Member member, Recruitment recruitment) {
+        useRepository.addRecruitment(member, recruitment);
     }
 
     @Override
-    public List<Recruitment> findMyNotice(Member member) {
+    public List<Recruitment> findMyRecruitment(Member member) {
         if (useRepository.findByMember(member).isPresent()) {
             return useRepository.findByMember(member).get();
         }

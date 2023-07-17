@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UseRepository {
-    Optional<Recruitment> addNotice(Member member, Recruitment recruitment);
+    Optional<Recruitment> addRecruitment(Member member, Recruitment recruitment);
     Optional<List<Recruitment>> findByMember(Member member);
 
     Collection<Recruitment> All();
