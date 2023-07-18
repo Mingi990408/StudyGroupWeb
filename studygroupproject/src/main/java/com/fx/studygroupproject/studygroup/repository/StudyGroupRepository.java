@@ -7,8 +7,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface UseRepository {
-    Optional<StudyGroup> addNotice(Member member, StudyGroup recruitment);
+public interface StudyGroupRepository {
+    Optional<StudyGroup> addStudyGroup(Member member, StudyGroup studyGroup);
     Optional<List<StudyGroup>> findByMember(Member member);
 
     Collection<StudyGroup> All();

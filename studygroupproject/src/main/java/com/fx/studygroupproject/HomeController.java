@@ -1,7 +1,9 @@
 package com.fx.studygroupproject;
 
 import com.fx.studygroupproject.recruitment.Recruitment;
-import com.fx.studygroupproject.recruitment.service.UseService;
+import com.fx.studygroupproject.recruitment.service.RecruitmentService;
+import com.fx.studygroupproject.studygroup.StudyGroup;
+import com.fx.studygroupproject.studygroup.service.StudyGroupService;
 import com.fx.studygroupproject.user.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +18,8 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 public class HomeController {
-    private final UseService useService;
+    private final RecruitmentService recruitmentService;
+    private final StudyGroupService studyGroupService;
     @GetMapping("/")
     public String home() {
         return "home";
@@ -35,9 +38,11 @@ public class HomeController {
     @GetMapping("/homepage")
     public String homepage(HttpSession session, Model model) {
         Member member = (Member) session.getAttribute("member");
-        List<Recruitment> recruitments = useService.findAll();
+        List<Recruitment> recruitments = recruitmentService.findAll();
+        List<StudyGroup> studyGroups = studyGroupService.findAll();
         model.addAttribute("member", member);
         model.addAttribute("recruitments", recruitments);
+        model.addAttribute("studyGroups", studyGroups);
         return "homepage";
     }
 }

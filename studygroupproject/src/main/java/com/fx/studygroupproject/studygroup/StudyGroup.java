@@ -5,8 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
@@ -15,16 +13,13 @@ public class StudyGroup {
     private Long Id;
     private String Title;
     private String Contents;
-
     private String Writer;
-    private List<String> Tag;
-    private ContactType Type;
+    private RoomType Type;
 
-    public StudyGroup(String title, String contents, String writer, List<String> tag, ContactType type) {
+    public StudyGroup(String title, String contents, String writer, RoomType type) {
         Title = title;
         Contents = contents;
         Writer = writer;
-        Tag = tag;
         Type = type;
     }
 }

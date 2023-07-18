@@ -29,7 +29,10 @@ public class Member {
             message = "닉네임은 특수문자를 포함하지 않은 2~10자리여야 합니다.")
     private String Nickname;
 
-    private List<Long> NoticeList = new ArrayList<>();
+    private List<Long> RecruitmentList = new ArrayList<>();
+
+    private List<Long> StudyGroupList = new ArrayList<>();
+
     public Member(String email, String password) {
         Email = email;
         Password = password;
@@ -40,7 +43,11 @@ public class Member {
         Password = password;
         Nickname = nickname;
     }
-    public void addNoticeId(Long noticeId){
-        this.NoticeList.add(noticeId);
+    public void addRecruitmentId(Long recruitmentId){
+        this.RecruitmentList.add(recruitmentId);
+    }
+
+    public void addStudyGroupId(Long studyGroupId) {
+        this.StudyGroupList.add(studyGroupId);
     }
 }

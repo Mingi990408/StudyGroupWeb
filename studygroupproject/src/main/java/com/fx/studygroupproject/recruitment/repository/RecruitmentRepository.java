@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface UseRepository {
+public interface RecruitmentRepository {
     Optional<Recruitment> addRecruitment(Member member, Recruitment recruitment);
     Optional<List<Recruitment>> findByMember(Member member);
 

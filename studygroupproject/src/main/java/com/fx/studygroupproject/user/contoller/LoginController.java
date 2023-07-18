@@ -24,7 +24,7 @@ public class LoginController {
         if (loginUser != null) {
             response.setStatus(HttpServletResponse.SC_OK);
             model.addAttribute("member", loginUser);
-            return "test";
+            return "homepage";
         } else {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return "redirect:/login?error";

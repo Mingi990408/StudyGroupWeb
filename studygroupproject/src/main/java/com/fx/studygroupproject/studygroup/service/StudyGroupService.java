@@ -5,7 +5,7 @@ import com.fx.studygroupproject.user.Member;
 
 import java.util.List;
 
-public interface UseService {
+public interface StudyGroupService {
     void CreateNotice(Member member, StudyGroup recruitment);
     List<StudyGroup> findMyNotice(Member member);
 

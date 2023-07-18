@@ -2,7 +2,10 @@ package com.fx.studygroupproject;
 
 import com.fx.studygroupproject.recruitment.ContactType;
 import com.fx.studygroupproject.recruitment.Recruitment;
-import com.fx.studygroupproject.recruitment.repository.UseRepository;
+import com.fx.studygroupproject.recruitment.repository.RecruitmentRepository;
+import com.fx.studygroupproject.studygroup.RoomType;
+import com.fx.studygroupproject.studygroup.StudyGroup;
+import com.fx.studygroupproject.studygroup.repository.StudyGroupRepository;
 import com.fx.studygroupproject.user.Member;
 import com.fx.studygroupproject.user.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +21,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class InitData {
     private final MemberRepository memberRepository;
-    private final UseRepository useRepository;
+    private final RecruitmentRepository recruitmentRepository;
+
+    private final StudyGroupRepository studyGroupRepository;
 
     @PostConstruct
     void setMemberTestData() {
@@ -30,7 +35,11 @@ public class InitData {
         Tag.add("test");
         Recruitment recruitment1 = new Recruitment("테스트", "내용", member.getNickname(), Tag, ContactType.Offline);
         Recruitment recruitment2 = new Recruitment("테스트", "내용",member.getNickname(), Tag, ContactType.Offline);
-        useRepository.addRecruitment(member, recruitment1);
-        useRepository.addRecruitment(member, recruitment2);
+        recruitmentRepository.addRecruitment(member, recruitment1);
+        recruitmentRepository.addRecruitment(member, recruitment2);
+
+        StudyGroup studyGroup1 = new StudyGroup("테스트 방 제목", "방 소개", member.getNickname(), RoomType.Open);
+
+        studyGroupRepository.addStudyGroup(member, studyGroup1);
     }
 }

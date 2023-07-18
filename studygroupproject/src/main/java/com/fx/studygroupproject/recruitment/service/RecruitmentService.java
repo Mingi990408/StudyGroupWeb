@@ -5,7 +5,7 @@ import com.fx.studygroupproject.user.Member;
 
 import java.util.List;
 
-public interface UseService {
+public interface RecruitmentService {
     void CreateRecruitment(Member member, Recruitment recruitment);
     List<Recruitment> findMyRecruitment(Member member);
 
