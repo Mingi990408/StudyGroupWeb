@@ -16,6 +16,8 @@ public class MemoryStudyGroupRepository implements StudyGroupRepository {
         member.addStudyGroupId(studyGroup.getId());
         store.put(studyGroup.getId(), studyGroup);
 
+        System.out.println("studyGroup = " + studyGroup);
+
         return Optional.ofNullable(store.get(studyGroup.getId()));
     }
 

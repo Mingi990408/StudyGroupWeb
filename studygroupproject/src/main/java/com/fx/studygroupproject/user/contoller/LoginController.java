@@ -19,12 +19,12 @@ public class LoginController {
     private final MemberService memberService;
 
     @PostMapping("/login-callback")
-    public String loginCallback(String Email, String Password, Model model, HttpServletResponse response) {
+    public String loginCallback(String Email, String Password, HttpSession session, HttpServletResponse response) {
         Member loginUser = memberService.login(Email, Password);
         if (loginUser != null) {
             response.setStatus(HttpServletResponse.SC_OK);
-            model.addAttribute("member", loginUser);
-            return "homepage";
+            session.setAttribute("member", loginUser);
+            return "redirect:/homepage";
         } else {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return "redirect:/login?error";

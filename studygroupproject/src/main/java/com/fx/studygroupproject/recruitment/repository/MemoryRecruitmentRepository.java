@@ -17,6 +17,7 @@ public class MemoryRecruitmentRepository implements RecruitmentRepository {
         member.addRecruitmentId(recruitment.getId());
         store.put(recruitment.getId(), recruitment);
 
+        System.out.println("recruitment = " + recruitment);
         return Optional.ofNullable(store.get(recruitment.getId()));
     }
 
@@ -30,6 +31,10 @@ public class MemoryRecruitmentRepository implements RecruitmentRepository {
     }
 
     public List<Recruitment> All() {
+        for (Recruitment recruitment:
+             store.values()) {
+            System.out.println("recruitment.toString() = " + recruitment.toString());
+        }
         return new ArrayList<Recruitment>(store.values());
     }
 }

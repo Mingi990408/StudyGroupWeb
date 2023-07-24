@@ -91,9 +91,6 @@
                     <button style="margin: 10px" class="btn btn-primary" data-bs-target="#NewNoticeModal" data-bs-toggle="modal">New Recruitment / Study Group</button>
                 </div>
             </div>
-        </header>
-        <!-- Section-->
-        <section class="py-5">
             <div class="modal fade" id="NewNoticeModal" tabindex="-1" aria-labelledby="NewNoticeModalLabel" aria-hidden="true">
                 <!-- 새 글 생성 모달 -->
                 <div class="modal-dialog">
@@ -101,11 +98,11 @@
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="NewNoticeTitle">Create Recruitment</h1>
                         </div>
-                        <form method="get" action="/new" onsubmit="">
-                            <select id="modal-select" class="form-select" aria-label="MenuList" style="width: 200px; margin: 16px" onchange="CreateModalBodyChange()">
-                                <option selected value="1">Recruitment</option>
-                                <option value="2" >Study Group</option>
-                            </select>
+                        <select id="modal-select" class="form-select" aria-label="MenuList" style="width: 200px; margin: 16px" onchange="CreateModalBodyChange()">
+                            <option selected value="1">Recruitment</option>
+                            <option value="2" >Study Group</option>
+                        </select>
+                        <form method="post" action="/new-recruitment" onsubmit="CreateRecruitment()">
                             <div id="modal-recruitment-body" class="modal-body">
                                 <input class="form-control" placeholder="제목" style="margin-bottom: 10px">
                                 <div class="input-group mb-3">
@@ -113,7 +110,8 @@
                                 </div>
                                 <textarea class="form-control" placeholder="스터디 내용" style="height: 300px"></textarea>
                             </div>
-
+                        </form>
+                        <form method="post" action="/new-studygroup" onsubmit="CreateStudyGroup()">
                             <div id="modal-group-body" class="modal-body" style="display: none">
                                 <input class="form-control" placeholder="제목" style="margin-bottom: 10px"/>
                                 <input class="form-control" placeholder="소개" style="margin-bottom: 10px"/>
@@ -134,15 +132,17 @@
                                 </div>
                                 <input class="form-control" id="RadioPassword" type="password" placeholder="비밀번호" style="display: none">
                             </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" id="create_btn" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Create</button>
-                            </div>
                         </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="create_btn" class="btn btn-primary" onclick="onsubmit()">Create</button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </header>
+        <!-- Section-->
+        <section class="py-5">
             <div style="float: right; margin-right: 50px;">
                 <form class="d-flex" role="search">
                     <select class="form-select" aria-label="MenuList" style="margin-right: 10px">

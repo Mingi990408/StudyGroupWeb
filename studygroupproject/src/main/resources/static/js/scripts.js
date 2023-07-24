@@ -115,3 +115,11 @@ function handleRadioChange(){
         RadioPassword.style.display = "block";
     }
 }
+
+function CreateRecruitment() {
+
+}
+
+function CreateStudyGroup() {
+
+}

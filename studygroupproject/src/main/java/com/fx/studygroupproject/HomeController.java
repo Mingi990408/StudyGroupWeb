@@ -40,6 +40,7 @@ public class HomeController {
         Member member = (Member) session.getAttribute("member");
         List<Recruitment> recruitments = recruitmentService.findAll();
         List<StudyGroup> studyGroups = studyGroupService.findAll();
+
         model.addAttribute("member", member);
         model.addAttribute("recruitments", recruitments);
         model.addAttribute("studyGroups", studyGroups);
