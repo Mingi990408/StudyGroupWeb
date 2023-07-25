@@ -11,15 +11,17 @@ import lombok.ToString;
 @NoArgsConstructor
 public class StudyGroup {
     private Long Id;
-    private String Title;
-    private String Contents;
-    private String Writer;
+    private String sgTitle;
+
+    private String sgIntroduce;
+    private String sgContents;
+    private String sgWriter;
     private RoomType Type;
 
     public StudyGroup(String title, String contents, String writer, RoomType type) {
-        Title = title;
-        Contents = contents;
-        Writer = writer;
+        sgTitle = title;
+        sgContents = contents;
+        sgWriter = writer;
         Type = type;
     }
 }

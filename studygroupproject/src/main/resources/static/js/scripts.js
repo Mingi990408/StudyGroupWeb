@@ -121,5 +121,55 @@ function CreateRecruitment() {
 }
 
 function CreateStudyGroup() {
+    event.preventDefault()
+    const form = document.getElementById("sgForm");
+    const OpenRadio = document.getElementById("OpenRadio");
+    const DisOpenRadio = document.getElementById("DisOpenRadio");
+    const selectedInputs = [];
+    let formData = new FormData(); // FormData 객체 생성
 
+    if (OpenRadio.checked) {
+        selectedInputs.add(['sgTitle', 'sgIntroduce', 'sgContents']); // 선택한 input 요소들의 id 속성 값 배열
+        formData.append("Type", "Open")
+    }else if (DisOpenRadio.checked) {
+        selectedInputs.add(['sgTitle', 'sgIntroduce', 'sgContents', "RadioPassword"]); // 선택한 input 요소들의 id 속성 값 배열
+        formData.append("Type", "Close")
+    }
+
+
+
+    for (let i = 0; i < selectedInputs.length; i++) {
+        const inputId = selectedInputs[i];
+        const inputElement = form.querySelector('#' + inputId);
+
+        if (inputElement) {
+            formData.append(inputId, inputElement.value); // 선택한 input 요소들을 폼 데이터에 추가
+        }
+    }
+
+    // 폼 데이터 전송 또는 처리
+    // AJAX 요청을 사용하여 서버로 폼 데이터 전송
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "new-studygroup", true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+
+            } else {
+
+            }
+        }
+    };
+    xhr.send(formData);
+
+}
+
+function submitForm() {
+    const ModalTitle = document.getElementById("NewNoticeTitle");
+    if(ModalTitle.textContent === "Create Recruitment"){
+        CreateRecruitment();
+    }
+    else if (ModalTitle.textContent === "Create Study Group") {
+        CreateStudyGroup();
+    }
 }

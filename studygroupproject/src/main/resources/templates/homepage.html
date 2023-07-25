@@ -48,7 +48,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="profile_div">
-                            <div><b>Nickname : </b><span th:text="${member.nickname}"></span></div>
+                            <div><b>Nickname : </b><span id="memberNickname" th:text="${member.nickname}"></span></div>
                             <div><b>Email : </b><span th:text="${member.email}"></span></div>
                             <div><b>Password : </b><span id="pw" th:text="${member.password}" style="display: none"></span>************
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ChangePasswordModal">Change</button>
@@ -111,11 +111,11 @@
                                 <textarea class="form-control" placeholder="스터디 내용" style="height: 300px"></textarea>
                             </div>
                         </form>
-                        <form method="post" action="/new-studygroup" onsubmit="CreateStudyGroup()">
+                        <form id="sgForm" method="post" action="/new-studygroup" onsubmit="CreateStudyGroup()">
                             <div id="modal-group-body" class="modal-body" style="display: none">
-                                <input class="form-control" placeholder="제목" style="margin-bottom: 10px"/>
-                                <input class="form-control" placeholder="소개" style="margin-bottom: 10px"/>
-                                <textarea class="form-control" placeholder="내용"></textarea>
+                                <input id="sgTitle" class="form-control" placeholder="제목" style="margin-bottom: 10px"/>
+                                <input id="sgIntroduce" class="form-control" placeholder="소개" style="margin-bottom: 10px"/>
+                                <textarea id="sgContents" class="form-control" placeholder="내용"></textarea>
                                 <div class="d-flex">
                                     <div class="form-check" style="margin-right: 10px">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="OpenRadio" checked onchange="handleRadioChange()" >
@@ -135,7 +135,7 @@
                         </form>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" id="create_btn" class="btn btn-primary" onclick="onsubmit()">Create</button>
+                            <button type="button" id="create_btn" class="btn btn-primary" onclick="submitForm()">Create</button>
                         </div>
                     </div>
                 </div>
@@ -201,9 +201,9 @@
                                         <div class="card-body p-4">
                                             <div class="text-center">
                                                 <!-- Product name-->
-                                                <h5 class="fw-bolder" th:text="${studyGroup.title}" > Study Group title</h5>
+                                                <h5 class="fw-bolder" th:text="${studyGroup.sgTitle}" > Study Group title</h5>
                                                 <!-- Product price-->
-                                                <div style="font-size: 15px" th:text="${studyGroup.contents}">Study Group.context</div>
+                                                <div style="font-size: 15px" th:text="${studyGroup.sgContents}">Study Group.context</div>
                                             </div>
                                         </div>
                                         <!-- Product actions-->
