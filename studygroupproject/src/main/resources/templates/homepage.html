@@ -102,20 +102,19 @@
                             <option selected value="1">Recruitment</option>
                             <option value="2" >Study Group</option>
                         </select>
-                        <form method="post" action="/new-recruitment" onsubmit="CreateRecruitment()">
+                        <form id="createForm" method="post" onsubmit="Create()">
                             <div id="modal-recruitment-body" class="modal-body">
-                                <input class="form-control" placeholder="제목" style="margin-bottom: 10px">
-                                <div class="input-group mb-3">
-                                    <input type="file" class="form-control" id="inputGroupFile02">
-                                </div>
-                                <textarea class="form-control" placeholder="스터디 내용" style="height: 300px"></textarea>
+<!--                                <input id="rTitle" class="form-control" placeholder="제목" style="margin-bottom: 10px">-->
+<!--                                <div class="input-group mb-3">-->
+<!--                                    <input type="file" class="form-control" id="rFile">-->
+<!--                                </div>-->
+<!--                                <textarea id="rContent" class="form-control" placeholder="스터디 내용" style="height: 300px"></textarea>-->
                             </div>
-                        </form>
-                        <form id="sgForm" method="post" action="/new-studygroup" onsubmit="CreateStudyGroup()">
+
                             <div id="modal-group-body" class="modal-body" style="display: none">
-                                <input id="sgTitle" class="form-control" placeholder="제목" style="margin-bottom: 10px"/>
-                                <input id="sgIntroduce" class="form-control" placeholder="소개" style="margin-bottom: 10px"/>
-                                <textarea id="sgContents" class="form-control" placeholder="내용"></textarea>
+                                <input id="sgTitle" name="sgTitle" class="form-control" placeholder="제목" style="margin-bottom: 10px"/>
+                                <input id="sgIntroduce" name="sgIntroduce" class="form-control" placeholder="소개" style="margin-bottom: 10px"/>
+                                <textarea id="sgContents" name="sgContents" class="form-control" placeholder="내용"></textarea>
                                 <div class="d-flex">
                                     <div class="form-check" style="margin-right: 10px">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="OpenRadio" checked onchange="handleRadioChange()" >
@@ -130,13 +129,14 @@
                                         </label>
                                     </div>
                                 </div>
-                                <input class="form-control" id="RadioPassword" type="password" placeholder="비밀번호" style="display: none">
+                                <input name="Password" class="form-control" id="RadioPassword" type="password" placeholder="비밀번호" style="display: none">
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" id="create_btn" class="btn btn-primary" data-bs-dismiss="modal">Create</button>
                             </div>
                         </form>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" id="create_btn" class="btn btn-primary" onclick="submitForm()">Create</button>
-                        </div>
                     </div>
                 </div>
             </div>

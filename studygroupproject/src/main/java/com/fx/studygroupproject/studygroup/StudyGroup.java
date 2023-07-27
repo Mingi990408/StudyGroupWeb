@@ -12,10 +12,10 @@ import lombok.ToString;
 public class StudyGroup {
     private Long Id;
     private String sgTitle;
-
     private String sgIntroduce;
     private String sgContents;
     private String sgWriter;
+    private String Password;
     private RoomType Type;
 
     public StudyGroup(String title, String contents, String writer, RoomType type) {
