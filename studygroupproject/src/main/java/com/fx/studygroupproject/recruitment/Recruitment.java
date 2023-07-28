@@ -2,6 +2,7 @@ package com.fx.studygroupproject.recruitment;
 
 import lombok.*;
 
+import java.io.File;
 import java.util.List;
 
 @Getter
@@ -10,18 +11,20 @@ import java.util.List;
 @NoArgsConstructor
 public class Recruitment {
     private Long Id;
-    private String Title;
-    private String Contents;
-
+    private String rTitle;
+    private String rContents;
+    private File rFile;
     private String Writer;
-    private List<String> Tag;
+    private List<String> rTag;
     private ContactType Type;
+    private String Location;
 
-    public Recruitment(String title, String contents, String writer, List<String> tag, ContactType type) {
-        Title = title;
-        Contents = contents;
+    public Recruitment(String title, String contents, String writer, List<String> tag, ContactType type, String location) {
+        rTitle = title;
+        rContents = contents;
         Writer = writer;
-        Tag = tag;
+        rTag = tag;
         Type = type;
+        Location = location;
     }
 }

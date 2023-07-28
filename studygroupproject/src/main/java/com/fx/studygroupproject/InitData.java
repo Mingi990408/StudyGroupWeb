@@ -33,8 +33,8 @@ public class InitData {
         List<String> Tag = new ArrayList<>();
         Tag.add("test");
         Tag.add("test");
-        Recruitment recruitment1 = new Recruitment("테스트", "내용", member.getNickname(), Tag, ContactType.Offline);
-        Recruitment recruitment2 = new Recruitment("테스트", "내용",member.getNickname(), Tag, ContactType.Offline);
+        Recruitment recruitment1 = new Recruitment("테스트", "내용", member.getNickname(), Tag, ContactType.Offline, "우리집" );
+        Recruitment recruitment2 = new Recruitment("테스트1", "내용1",member.getNickname(), Tag, ContactType.Offline, "우리집1");
         recruitmentRepository.addRecruitment(member, recruitment1);
         recruitmentRepository.addRecruitment(member, recruitment2);
 

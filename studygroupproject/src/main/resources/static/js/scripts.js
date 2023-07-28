@@ -116,22 +116,73 @@ function handleRadioChange(){
     }
 }
 
-function Create() {
-    // event.preventDefault()
+function LocationRadioChange() {
+    const OnlineRadio = document.getElementById("OnlineRadio");
+    const OfflineRadio = document.getElementById("OffLineRadio");
+    const AllRadio = document.getElementById("AllRadio");
+    const Location = document.getElementById("Location");
 
-    let modalSelected = document.getElementById("modal-select").value;
-
-    if (modalSelected === "1"){
-        CreateRecruitment();
-        console.log("CreateRecruitment")
-    }else if (modalSelected === "2") {
-        CreateStudyGroup();
-        console.log("Study")
+    if (OnlineRadio.checked) {
+        Location.style.display = "none";
+    }else if (OfflineRadio.checked || AllRadio.checked) {
+        Location.style.display = "block";
     }
-
 }
 
 function CreateRecruitment() {
+    event.preventDefault()
+
+    const form = document.getElementById("createForm");
+    const selectedInputs = ['rTitle', 'rFile', 'rContents'];
+    const OnlineRadio = document.getElementById("OnlineRadio");
+    const OfflineRadio = document.getElementById("OffLineRadio");
+    const AllRadio = document.getElementById("AllRadio");
+    const tagDiv = document.getElementById("Tags")
+    let Tags = []
+
+    let formData = new FormData(); // FormData 객체 생성
+
+    for (let i = 0; i < selectedInputs.length; i++) {
+        const inputId = selectedInputs[i];
+        const inputElement = form.querySelector('#' + inputId);
+
+        if (inputElement) {
+            formData.append(inputId, inputElement.value); // 선택한 input 요소들을 폼 데이터에 추가
+        }
+    }
+
+    if (OnlineRadio.checked) {
+        formData.append("Type", "Online")
+    }else if (OfflineRadio.checked) {
+        formData.append("Type", "Offline")
+    }else if (AllRadio.checked) {
+        formData.append("Type", "All")
+    }
+
+    const divChildTags = tagDiv.childNodes;
+    for (const tag of divChildTags) {
+        if (tag.tagName === "B") {
+            Tags.push(tag.textContent);
+        }
+    }
+    formData.append("rTag", Tags);
+
+
+    // 폼 데이터 전송 또는 처리
+    // AJAX 요청을 사용하여 서버로 폼 데이터 전송
+    const xhr = new XMLHttpRequest();
+    xhr.open("post", "recruitment", true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                alert("새 글을 작성했습니다!")
+                location.reload()
+            } else {
+
+            }
+        }
+    };
+    xhr.send(formData);
 }
 
 function CreateStudyGroup() {
@@ -173,4 +224,21 @@ function CreateStudyGroup() {
     };
     xhr.send(formData);
 
+};
+function checkKeyPress(event) {
+    if (event.key === ' ') {
+        const inputElement = document.getElementById('rTag');
+        const word = inputElement.value.trim();
+
+        if (word) {
+            const displayContainer = document.getElementById('Tags');
+            const boldElement = document.createElement('b');
+            boldElement.textContent = word;
+            displayContainer.appendChild(boldElement);
+            displayContainer.appendChild(document.createTextNode(' ')); // 스페이스 추가
+
+            // 입력값 초기화
+            inputElement.value = '';
+        }
+    }
 }

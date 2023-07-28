@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #displayContainer {
+      display: inline-block;
+    }
+
+    #displayContainer b {
+      margin: 5px;
+      padding: 5px 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+<input type="text" id="textInput" onkeyup="checkKeyPress(event)">
+<div id="displayContainer"></div>
+<script>
+  function checkKeyPress(event) {
+    if (event.key === ' ') {
+      const inputElement = document.getElementById('textInput');
+      const word = inputElement.value.trim();
+
+      if (word) {
+        const displayContainer = document.getElementById('displayContainer');
+        const boldElement = document.createElement('b');
+        boldElement.textContent = word;
+        displayContainer.appendChild(boldElement);
+        displayContainer.appendChild(document.createTextNode(' ')); // 스페이스 추가
+
+        // 입력값 초기화
+        inputElement.value = '';
+      }
+    }
+  }
+</script>
+</body>
+</html>
