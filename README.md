@@ -34,4 +34,4 @@
 > 디자인이랑 필요 요소는 더욱 생각해보고 결정 
 
 ## 참고 
-https://alsrl990408.atlassian.net/jira/software/projects/SGW/boards/2
+https://alsrl990408-1735783224647.atlassian.net/jira/software/projects/SGW/boards/2
